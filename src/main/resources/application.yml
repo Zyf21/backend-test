@@ -1,8 +1,8 @@
 spring:
   datasource:
-    username: postgres
+    username: postgress
     password: postgres
-    url: jdbc:postgresql://localhost:5432/sectors
+    url: jdbc:postgresql://db:5432/sectors
     driver-class-name: org.postgresql.Driver
 
   flyway:

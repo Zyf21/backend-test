@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  app:
+    image: 'test-backend:latest'
+    ports:
+      - "8080:8080"
+    container_name: test-backend
+    build:
+      dockerfile: DockerFile
+      context: ./
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/sectors
+      - SPRING_DATASOURCE_USERNAME=postgress
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
+  db:
+    image: 'postgres:latest'
+    container_name: postgres-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgress
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=sectors
